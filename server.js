@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('A user connected');
 
-  socket.on('send-text', (text) => {
-    console.log('Received text:', text);
-    io.emit('text-received', text);
+  socket.on('time-received', (timeInSeconds) => {
+    console.log('Received time:', timeInSeconds);
+    io.emit('time-received', timeInSeconds);
   });
 
   socket.on('disconnect', () => {
