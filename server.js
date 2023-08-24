@@ -20,6 +20,11 @@ io.on('connection', (socket) => {
     io.emit('time-received', timeInSeconds);
   });
 
+  socket.on('timer-finished', () => {
+    console.log('Timer finished');
+    io.emit('timer-finished');
+  });
+
   socket.on('disconnect', () => {
     console.log('A user disconnected');
   });
